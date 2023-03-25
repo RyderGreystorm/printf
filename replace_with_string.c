@@ -15,6 +15,9 @@ char *replace_with_string(char *s, int i, char *str)
 	char *new_s;
 	int j, k, done = 0;
 
+	if (str == NULL)
+		str = "(null)";
+
 	new_s = malloc(sizeof(char) * (strlen(s) - 1));
 
 	for (i = 0, j = 0; s[i] != '\0'; i++, j++)
