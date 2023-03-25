@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
 * replace_with_per - replacement
 * @s: pointer to string

@@ -1,3 +1,4 @@
+#include "main.h"
 
 /**
 * replace_with_string - replacement
