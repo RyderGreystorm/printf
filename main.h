@@ -9,5 +9,7 @@
 #include <fcntl.h>
 
 int _printf(const char *format, ...);
-
+char *replace_with_per(char *s, int i);
+char *replace_with_string(char *s, int i, char *str);
+char *replace_with_char(char *s, int i, char c);
 #endif /**MAIN_H*/
