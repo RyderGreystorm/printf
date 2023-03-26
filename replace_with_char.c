@@ -4,18 +4,18 @@
 * replace_with_char - replacement
 * @s: pointer to string
 * @i: index of the string
-* @c: character to replace with
+* @c: integer of character to replace with
 *
 * Description: replace the charaters at the index with c character
 *
 * Return: char *
 */
-char *replace_with_char(char *s, int i, char c)
+char *replace_with_char(char *s, int i, int c)
 {
 	char *new_s;
 	int j, done = 0;
 
-	if (!c)
+	if (!((char) c) || c < 0 || c > 127)
 		c = ' ';
 
 	new_s = malloc(sizeof(char) * (strlen(s)));
@@ -24,7 +24,7 @@ char *replace_with_char(char *s, int i, char c)
 	{
 		if (s[i] == '%' && s[i + 1] == 'c' && !done)
 		{
-			new_s[j] = c;
+			new_s[j] = (char) c;
 			i = 1 + i;
 			done = 1;
 			continue;

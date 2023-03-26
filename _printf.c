@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 'c':
-					str = replace_with_char(str, i, (char) va_arg(ap, int));
+					str = replace_with_char(str, i, va_arg(ap, int));
 					break;
 				case 's':
 					str = replace_with_string(str, i, va_arg(ap, char *));
