@@ -15,7 +15,10 @@ char *replace_with_char(char *s, int i, char c)
 	char *new_s;
 	int j, done = 0;
 
-	new_s = malloc(sizeof(char) * (strlen(s) - 1));
+	if (!c)
+		c = ' ';
+
+	new_s = malloc(sizeof(char) * (strlen(s)));
 
 	for (i = 0, j = 0; s[i] != '\0'; i++, j++)
 	{
@@ -31,6 +34,9 @@ char *replace_with_char(char *s, int i, char c)
 	}
 
 	new_s[j] = '\0';
+	s = realloc(s, sizeof(char) * (strlen(new_s) + 1));
+	strcpy(s, new_s);
+	free(new_s);
 
-	return (new_s);
+	return (s);
 }
