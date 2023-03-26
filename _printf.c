@@ -46,5 +46,5 @@ int _printf(const char *format, ...)
 	write(1, str, len);
 
 	free(str);
-	return (i);
+	return (len);
 }
