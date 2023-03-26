@@ -26,6 +26,8 @@ char *tostring(char *str, int num)
 		len++;
 		n /= 10;
 	}
+	if (isN)
+		len++;
 	str = (char *) malloc(sizeof(char) * (len + 1));
 	for (i = 0; i < len; i++)
 	{
