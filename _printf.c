@@ -36,6 +36,12 @@ int _printf(const char *format, ...)
 				case '%':
 					str = replace_with_per(str, i);
 					break;
+				case 'd':
+					str = replace_with_int(str, i, (int) va_arg(ap, int));
+					break;
+				case 'i':
+					str = replace_with_int(str, i, (int) va_arg(ap, int));
+					break;
 				default:
 					break;
 			}
