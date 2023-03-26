@@ -30,7 +30,6 @@ char *replace_with_per(char *s, int i)
 	}
 
 	new_s[j] = '\0';
-	s = realloc(s, sizeof(char) * (strlen(new_s) + 1));
 	strcpy(s, new_s);
 	free(new_s);
 
