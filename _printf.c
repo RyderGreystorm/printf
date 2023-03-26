@@ -16,9 +16,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	if (format == NULL)
-	{
-		return (0);
-	}
+		return (-1);
 
 	str = malloc(sizeof(char) * (strlen(format) + 1));
 	strcpy(str, format);
@@ -45,11 +43,8 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(ap);
-
 	len = strlen(str);
-
 	write(1, str, len);
-
 	free(str);
 	return (len);
 }
