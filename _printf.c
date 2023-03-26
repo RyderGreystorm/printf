@@ -15,6 +15,11 @@ int _printf(const char *format, ...)
 	int i, len = 0;
 	va_list ap;
 
+	if (format == NULL)
+	{
+		return (0);
+	}
+
 	str = malloc(sizeof(char) * (strlen(format) + 1));
 	strcpy(str, format);
 	va_start(ap, format);

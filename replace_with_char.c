@@ -15,7 +15,7 @@ char *replace_with_char(char *s, int i, int c)
 	char *new_s;
 	int j, done = 0;
 
-	if (!((char) c) || c < 0 || c > 127)
+	if (c == 0)
 		c = ' ';
 
 	new_s = malloc(sizeof(char) * (strlen(s)));
