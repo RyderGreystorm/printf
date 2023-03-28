@@ -1,6 +1,23 @@
 #include "main.h"
 
 /**
+* write_chars - write characters
+* @str: string
+* @b_int: pointer to int
+*
+* Description: print characters stored up in the
+* buffer
+*
+* Return: int
+*/
+void write_chars(char *str, int *b_int)
+{
+	if (*b_int > 0)
+		write(1, &str[0], *b_int);
+	*b_int = 0;
+}
+
+/**
 * _printf - printing
 * @format: string that may contain formatting identifiers
 *
@@ -11,46 +28,42 @@
 */
 int _printf(const char *format, ...)
 {
-	char *str;
-	int i, len = 0;
+	char str[B_SIZE];
+	int i, len = 0, b_int = 0, char_printed = 0;
+	int flags, width, precision, str_length;
 	va_list ap;
 
 	if (format == NULL)
 		return (-1);
-
-	str = malloc(sizeof(char) * (strlen(format) + 1));
-	strcpy(str, format);
 	va_start(ap, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
 		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					str = replace_with_char(str, i, va_arg(ap, int));
-					break;
-				case 's':
-					str = replace_with_string(str, i, va_arg(ap, char *));
-					break;
-				case '%':
-					str = replace_with_per(str, i);
-					break;
-				case 'd':
-					str = replace_with_int(str, i, (int) va_arg(ap, int));
-					break;
-				case 'i':
-					str = replace_with_int(str, i, (int) va_arg(ap, int));
-					break;
-				default:
-					break;
-			}
+			write_chars(str, &b_int);
+			flags = set_flag(format, &i);
+			width = set_width(ap, format, &i);
+			precision = set_precision(ap, format, &i);
+			str_length = set_str_length(format, &i);
+			i++;
+			char_printed = _print(
+				format, str, ap, &i, flags,
+				width, precision, str_length
+			);
+			if (char_printed == -1)
+				return (-1);
+			len += char_printed;
+		}
+		else
+		{
+			str[b_int] = format[i];
+			b_int++;
+			if (b_int ==  B_SIZE)
+				write_chars(str, &b_int);
+			len++;
 		}
 	}
-
 	va_end(ap);
-	len = strlen(str);
-	write(1, str, len);
-	free(str);
+	write_chars(str, &b_int);
 	return (len);
 }
