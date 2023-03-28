@@ -43,18 +43,18 @@ int print_char(
 		j--;
 		if (flags & F_MINUS)
 		{
-			printed = write(1, &buffer[0] , 1);
+			printed = write(1, &buffer[0], 1);
 			printed += write(1, &buffer[B_SIZE - 2 - j], width);
 		}
 		else
 		{
 			printed = write(1, &buffer[B_SIZE - 2 - j], width);
-			printed += write(1, &buffer[0] , 1);
+			printed += write(1, &buffer[0], 1);
 		}
 	}
 	else
 	{
-		printed = write(1, &buffer[0] , 1);
+		printed = write(1, &buffer[0], 1);
 	}
 
 	return (printed);

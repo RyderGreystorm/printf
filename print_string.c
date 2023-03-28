@@ -44,18 +44,18 @@ int print_string(
 		j--;
 		if (flags & F_MINUS)
 		{
-			printed = write(1, &str[0] , len);
+			printed = write(1, &str[0], len);
 			printed += write(1, &str[B_SIZE - 2 - j], width);
 		}
 		else
 		{
 			printed = write(1, &str[B_SIZE - 2 - j], width);
-			printed += write(1, &str[0] , len);
+			printed += write(1, &str[0], len);
 		}
 	}
 	else
 	{
-		printed = write(1, &str[0] , len);
+		printed = write(1, &str[0], len);
 	}
 
 	return (printed);

@@ -18,8 +18,9 @@
 #define SHORT_LENGTH 2
 
 #define B_SIZE 1024
-/*
-* f_spec - struct for specifiers
+
+/**
+* struct f_spec - struct for specifiers
 * @specifier: specific specifier
 * @fn: function associated with the specifier
 *
@@ -32,18 +33,14 @@ struct f_spec
 	int (*fn)(va_list, char [], int *, int, int, int, int);
 };
 
-/*
+/**
 * f_spec_t - typedef struct for specifiers
 */
 typedef struct f_spec f_spec_t;
 
 int _printf(const char *format, ...);
-char *replace_with_per(char *s, int i);
-char *replace_with_string(char *s, int i, char *str);
-char *replace_with_char(char *s, int i, int c);
-char * replace_with_int(char *s, int i, int num);
 int _print(
-	const char * format, char [], va_list ap,
+	const char *format, char [], va_list ap,
 	int *i, int floats, int width, int precision,
 	int str_length
 );
