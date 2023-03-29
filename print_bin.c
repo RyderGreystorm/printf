@@ -30,6 +30,10 @@ int print_bin(
 	num = va_arg(ap, unsigned int);
 
 	buffer[B_SIZE - 1] = '\0';
+
+	if (num == 0)
+		buffer[j--] = '0';
+
 	while (num != 0)
 	{
 		buffer[j--] = (num % 2) + '0';
