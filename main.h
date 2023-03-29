@@ -61,4 +61,5 @@ int set_str_length(const char *format, int *i);
 
 int is_digit(char c);
 int _strlen(char *s);
+long int convert_size_number(long int, int);
 #endif /**MAIN_H*/

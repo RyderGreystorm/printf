@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * _strlen - string length
@@ -33,4 +33,21 @@ int is_digit(char c)
 		return (1);
 
 	return (0);
+}
+
+/**
+ * convert_size_number -numbers converted to specified size
+ * @num: Number params
+ * @size: type being casted.
+ *
+ * Return: num
+ */
+long int convert_size_number(long int num, int size)
+{
+	if (size == LONG_LENGTH)
+		return (num);
+	else if (size == SHORT_LENGTH)
+		return ((short)num);
+
+	return ((int)num);
 }
