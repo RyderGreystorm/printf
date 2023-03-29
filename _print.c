@@ -23,7 +23,7 @@ int _print(
 )
 {
 	f_spec_t specs[] = {
-		{'c', print_char},
+		{'c', print_char}, {'b', print_bin},
 		{'s', print_string},
 		{'%', print_per},
 		{'d', print_int},

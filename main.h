@@ -50,6 +50,7 @@ int print_char(va_list, char [], int *, int, int, int, int);
 int print_string(va_list, char [], int *, int, int, int, int);
 int print_per(va_list, char [], int *, int, int, int, int);
 int print_int(va_list, char [], int *, int, int, int, int);
+int print_bin(va_list, char [], int *, int, int, int, int);
 int print_float(va_list, char [], int *, int, int, int, int);
 
 
