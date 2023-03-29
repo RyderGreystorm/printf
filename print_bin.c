@@ -19,7 +19,7 @@ int print_bin(
 	int width, int precision, int str_length
 )
 {
-	int num, j = B_SIZE - 2;
+	unsigned int num, j = B_SIZE - 2;
 
 	UNUSED(width);
 	UNUSED(i);
@@ -27,7 +27,7 @@ int print_bin(
 	UNUSED(flags);
 	UNUSED(precision);
 
-	num = va_arg(ap, int);
+	num = va_arg(ap, unsigned int);
 
 	buffer[B_SIZE - 1] = '\0';
 	while (num != 0)
